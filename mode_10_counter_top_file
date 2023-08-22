@@ -1,0 +1,7 @@
+module top_mod_10(input logic clk,rst,output logic [3:0]q
+
+    );
+    logic w1;
+    one_sec_led a1(w1,clk,rst);
+    mode_10_counter_b m1(w1,rst,q[3:0]);
+endmodule
