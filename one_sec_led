@@ -1,0 +1,15 @@
+module one_sec_led(output logic op, input logic clk,rst
+    );
+    logic [26:0]count;
+    always_ff@(posedge clk)
+    if(!rst)  begin 
+    op<=0;
+    count<=0;   end
+    else if(count==62499999) begin
+    op<=~op;
+    count<=0;
+    end
+    else
+    count<=count+1;
+    
+endmodule
