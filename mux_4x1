@@ -1,0 +1,21 @@
+module mux_4x1_if(input logic [3:0]a,input logic [1:0]s,output logic y
+
+
+    );
+    always_comb 
+    begin 
+    if(s[1])
+      begin
+         if(s[0])
+            y=a[3];
+         else 
+            y=a[2];
+      end
+    else begin 
+      if(s[0])
+        y=a[1];
+      else 
+         y=a[0];
+       end
+    end
+endmodule
