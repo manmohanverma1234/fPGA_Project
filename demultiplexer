@@ -1,0 +1,22 @@
+module demux_1x4(input logic d,s1,s2, output logic [3:0]y
+    
+    );
+    always_comb
+    begin 
+    if(s1)
+        begin 
+           if(s2)
+              y={d,3'b000};
+            else 
+              y={1'b0,d,2'b00};
+        end
+              
+    else 
+      begin
+         if(s2)
+            y={2'b00,d,1'b0}; 
+         else
+            y={3'b000,d};
+       end
+    end 
+endmodule
