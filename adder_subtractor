@@ -1,10 +1,10 @@
-module adder_subtractor(input logic rst,s,input logic [2:0]a,b,output logic [3:0]y
+module adder_subtractor(input logic rst,s,input logic [1:0]a,b,output logic [2:0]y
 
     );
     always_comb
     begin 
     if(rst)begin
-      y=4'b0000;
+      y=4'b000;
       end
     else 
      if(s) 
