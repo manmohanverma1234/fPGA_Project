@@ -1,0 +1,35 @@
+module led_on_4time(input logic clk,rst,input logic [1:0]s,output logic led
+
+    );
+    logic [29:0]count;
+    always_ff@(posedge clk)
+    begin
+    if(rst)begin
+    led<=1'b0;
+    count<=30'd0;
+    end 
+    else
+      case(s) 
+      2'b00:if(count==62499999)begin //1 sec
+          led<=~led;
+          count<=30'd0;
+          end 
+          else count<=count+1;
+      2'b01: if(count==124999999)begin //2sec
+                led<=~led;
+                count<=30'd0;
+                end 
+                else count<=count+1; 
+      2'b10: if(count==249999999)begin //4 sec
+               led<=~led;
+               count<=30'd0;
+               end 
+               else count<=count+1;
+      2'b11 : if (count==31249999)begin //0.5 sec
+              led<=~led;
+              count<=30'd0;
+              end
+              else count<=count+1;
+       endcase
+ end
+endmodule
